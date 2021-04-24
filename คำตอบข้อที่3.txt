@@ -1,0 +1,40 @@
+string mode;
+            mode = Console.ReadLine();
+            double filmBackWidth , fLength , fov;
+            filmBackWidth = double.Parse(Console.ReadLine());
+            fLength = double.Parse(Console.ReadLine());
+            fov = double.Parse(Console.ReadLine());
+            if (filmBackWidth > 0)
+            {
+                if (mode == "fLength")
+                {
+                    Console.WriteLine("input fLength", fLength);
+                }
+                else if (mode == "fov")
+                {
+                    Console.WriteLine("input fov", fov);
+                }
+                if (fLength > 0)
+                {
+                    fov = 2 * Math.Atan(filmBackWidth / 2*fLength);
+                    Console.WriteLine(fov);
+                }
+                else
+                {
+                    Console.WriteLine("invalid fLength Please input again.");
+                }
+                if (fov > 0.1 && fov < 6.28)
+                {
+                    fLength = filmBackWidth / (2 * Math.Tan(fov / 2));
+                    Console.WriteLine(fLength);
+                }
+                else
+                {
+                    Console.WriteLine("invalid fov Please input again.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("invalid filmBlackWidth Please input again.");
+            }
+            Console.WriteLine("fLength = "+fLength + "fov = "+fov);
